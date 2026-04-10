@@ -1,0 +1,54 @@
+<div class="relative w-full overflow-hidden bg-primary py-16 lg:px-6">
+  <!-- Decorative Blobs -->
+  <div class="absolute top-0 left-0 w-72 h-72 bg-cyan-200 opacity-20 blur-3xl rounded-2xl"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-300 opacity-20 blur-3xl rounded-2xl"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="font-alexandria text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-4" data-aos="fade-up" data-aos-duration="1000">
+        Tailored for Your Industry
+      </h2>
+      <p class="text-white/70 max-w-2xl mx-auto text-lg" data-aos="fade-up" data-aos-duration="1000">
+        HR Connect adapts to the unique needs of your business sector with smart automation and flexible modules.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <div *ngFor="let industry of industries"
+        class="group relative p-[1px] rounded-2xl bg-gradient-to-br from-white/20 to-white/5 hover:from-cyan-400 hover:to-blue-300/50 transition-all duration-500" data-aos="fade-up" data-aos-duration="1000">
+
+        <!-- Inner Card -->
+        <div class="h-full rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 p-5
+          transition-all duration-500 group-hover:bg-white group-hover:shadow-2xl group-hover:-translate-y-3">
+
+          <!-- Icon -->
+          <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-primary text-white text-xl mb-6 group-hover:scale-110 transition shadow-lg shadow-[#2DA0D9]/25">
+            <i [class]="industry.icon "></i>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-xl font-semibold mb-3 text-white group-hover:text-gray-900 transition">
+            {{ industry.title }}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-sm leading-relaxed text-white/70 group-hover:text-gray-600 transition">
+            {{ industry.description }}
+          </p>
+
+          <!-- Hover Arrow -->
+          <div class="mt-5 opacity-0 group-hover:opacity-100 transition">
+            <span class="text-sm font-medium text-primary flex items-center gap-1">
+              Learn More
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

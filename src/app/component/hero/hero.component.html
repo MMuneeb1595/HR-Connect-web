@@ -1,0 +1,117 @@
+<section class="bg-gray-50 py-16 lg:px-6">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 ">
+
+    <!-- GRID -->
+    <div class="flex flex-col md:flex-row gap-4 lg:gap-8 ">
+
+      <!-- LEFT -->
+      <div class="w-full md:w-1/2">
+
+        <!-- TEXT -->
+        <div class="mb-4 lg:mb-6">
+          <h1 class="font-semibold text-3xl sm:text-4xl md:text-5xl xl:text-6xl mb-4 lg:mb-4"data-aos="fade-up" data-aos-duration="1000">
+            The Complete HRMS
+            <span class="text-primary"> Suite for Growing Businesses</span>
+          </h1>
+
+          <p class="text-gray-600 text-sm sm:text-base md:text-lg leading-loose max-w-xl" data-aos="fade-up" data-aos-duration="1000">
+            From onboarding to offboarding, manage attendance, payroll, performance, and recruitment with one integrated cloud platform.
+          </p>
+        </div>
+
+        <!-- STATS -->
+        <div class="mb-4 lg:mb-6">
+          <p class="text-lg sm:text-2xl font-medium mb-2 lg:mb-2" data-aos="fade-up" data-aos-duration="1000">
+            Trusted by <span class="text-primary">companies worldwide</span>
+          </p>
+
+          <div class="flex justify-between gap-6">
+            <div *ngFor="let item of stats" class="flex flex-col items-center text-center" >
+              <div class="bg-blue-50 p-3 rounded-full shadow-sm" data-aos="fade-up" data-aos-duration="1000">
+                <img [src]="item.icon" class="w-5 h-5 sm:w-6 sm:h-6">
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900" data-aos="fade-up" data-aos-duration="1000">
+                {{ item.value }}
+              </h3>
+              <p class="text-xs text-gray-500" data-aos="fade-up" data-aos-duration="1000">
+                {{ item.label }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-nowrap gap-1.5 mb-3">
+          <a class="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base bg-primary text-white rounded-lg hover:scale-105 transition" data-aos="fade-up" data-aos-duration="1000">
+            Start Free Trial
+          </a>
+          <a class="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-primary text-primary rounded-lg hover:scale-105 transition" data-aos="fade-up" data-aos-duration="1000">
+            Watch Overview
+          </a>
+        </div>
+
+        <!-- PLAY STORE -->
+        <div class="flex items-center gap-3 border rounded-lg p-1 lg:p-2 w-fit shadow-md hover:scale-105 transition" data-aos="fade-up" data-aos-duration="1000">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" color="#000000" fill="none"> <path d="M17.9405 12.4311C17.7073 13.3831 16.4665 14.0669 13.9848 15.4344C11.2857 16.9217 9.93612 17.6654 8.84297 17.3789C8.47274 17.2819 8.13174 17.1112 7.84541 16.8797C7 16.1963 7 14.7773 7 11.9394C7 9.10157 7 7.68264 7.84541 6.99915C8.13174 6.76766 8.47274 6.59704 8.84297 6.5C9.93612 6.21349 11.2857 6.95715 13.9848 8.44448C16.4665 9.81199 17.7073 10.4957 17.9405 11.4478C18.0198 11.7717 18.0198 12.1072 17.9405 12.4311Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path> <path d="M8 17L16 9.61432M8 7L16 14.3857" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path> <path d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path> </svg>
+          <div>
+            <p class="text-xs">GET IT ON</p>
+            <h6 class="text-base font-medium leading-tight">Google Play</h6>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="w-full md:w-1/2 bg-primary p-4 md:py-10 rounded-2xl flex flex-col justify-center">
+
+        <!-- CHART CARD -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 mb-6" data-aos="fade-up" data-aos-duration="1000">
+          <div class="flex justify-between mb-2">
+            <h3 class="text-sm sm:text-base font-semibold">Attendance</h3>
+            <span class="text-xs text-gray-400">This Week</span>
+          </div>
+
+          <!-- CONTROLLED HEIGHT -->
+          <div class="h-[150px] sm:h-[250px] md:h-[230px] lg:h-[250px] ">
+            <canvas baseChart 
+              [data]="attendanceChartData"
+              [options]="attendanceChartOptions"
+              chartType="bar">
+            </canvas>
+          </div>
+        </div>
+
+        <!-- GRID CARDS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+          <!-- APPROVALS -->
+          <div class="bg-white rounded-2xl shadow-sm p-3" data-aos="fade-up" data-aos-duration="1000">
+            <h3 class="text-sm font-semibold mb-2">Pending</h3>
+
+            <div class="space-y-2">
+              <div *ngFor="let item of approvals" class="p-1 bg-gray-50 rounded-lg">
+                <p class="text-sm">{{ item.title }}</p>
+                <p class="text-xs text-gray-400 flex justify-between">{{ item.name }} <span class="text-[9px] lg:text-xs">{{item.time}}</span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BIRTHDAYS -->
+          <div class="bg-white rounded-2xl shadow-sm p-3" data-aos="fade-up" data-aos-duration="1000">
+            <h3 class="text-sm font-semibold mb-4">Birthdays 🎉</h3>
+
+            <div class="space-y-4">
+              <div *ngFor="let user of birthdays" class="flex items-center gap-2">
+                <img [src]="user.img" class="w-8 h-8 rounded-full">
+                <p class="text-sm">{{ user.name }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+<section class="bg-sky-500 ">
+
+  <div class="container mx-auto relative py-16 lg:py-28 px-10 lg:px-0 text-center text-white" >
+    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 h-[500px] w-[500px] z-10
+        bg-white rounded-full opacity-60 
+        blur-[140px]">
+    </div>
+
+
+
+    <!-- Heading -->
+    <div class="max-w-3xl mx-auto mb-12">
+      <h2 data-aos="fade-up" data-aos-duration="1000" class="text-3xl lg:text-6xl font-semibold mb-10 font-alexandria">
+        Satisfaction, Delivered, Reviewed
+      </h2>
+      <p data-aos="fade-up" data-aos-duration="1000" class="text-sky-100 font-alexandria font-normal">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s.
+      </p>
+    </div>
+
+    <!-- Owl Carousel -->
+    <owl-carousel-o [options]="customOptions" class="container h-fit mx-auto py-5">
+      <ng-container *ngFor="let item of testimonials">
+        <ng-template carouselSlide>
+          <div
+            class="bg-white rounded-2.5xl shadow-2xl p-6 text-left transition-transform  h-fit duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="flex items-center gap-4 mb-5 xl:mb-9">
+              <img [src]="item.image" alt="{{ item.name }}"
+                class="w-24 h-24 max-w-24 rounded-full border object-cover" />
+              <div class="w-[calc(100%-96px)]">
+                <h3 class="font-semibold text-2xl text-primary font-alexandria">{{ item.name }}</h3>
+                <p class="text-gray-600 font-normal">
+                  {{ item.company }}
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-5 xl:mb-9">
+              {{ item.message }}
+            </p>
+            <p class="text-primary text-sm font-normal ">
+              {{ item.date }}
+            </p>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+</section>

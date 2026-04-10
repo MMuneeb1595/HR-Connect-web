@@ -1,0 +1,33 @@
+<nav class="bg-[#020617] text-white px-6 py-4">
+  <div class="flex items-center justify-between">
+
+    <!-- Logo -->
+    <h1 class="text-xl font-bold">HRMS</h1>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex gap-6">
+      <a *ngFor="let link of navLinks"
+         [routerLink]="link.path"
+         routerLinkActive="text-blue-400"
+         class="hover:text-blue-400 transition">
+        {{ link.label }}
+      </a>
+    </div>
+
+    <!-- Mobile Button -->
+    <button class="md:hidden" (click)="toggleMenu()">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMenuOpen()" class="md:hidden mt-4 flex flex-col gap-4">
+    <a *ngFor="let link of navLinks"
+       [routerLink]="link.path"
+       (click)="closeMenu()"
+       routerLinkActive="text-blue-400"
+       class="block">
+      {{ link.label }}
+    </a>
+  </div>
+</nav>
