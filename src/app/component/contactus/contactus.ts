@@ -44,14 +44,14 @@ export class Contactus{
   contactInfo = {
     email: 'info@hrconnect.com',
     phone: '+1 (123) 456-7890',
-    address: '123 Business Ave, City, State 12345'
+    address: '1725 Building Madina Twon, Faiasalabad'
   };
 
   socialLinks = [
-    { name: 'Facebook', icon: 'fab fa-facebook-f', url: '#' },
-    { name: 'Twitter', icon: 'fab fa-twitter', url: '#' },
-    { name: 'LinkedIn', icon: 'fab fa-linkedin-in', url: '#' },
-    { name: 'Instagram', icon: 'fab fa-instagram', url: '#' }
+    { name: 'Facebook', icon: 'fab fa-facebook-f', url: 'https://www.facebook.com/' },
+    { name: 'Twitter', icon: 'fab fa-twitter', url: 'https://x.com/' },
+    { name: 'LinkedIn', icon: 'fab fa-linkedin-in', url: 'https://www.linkedin.com/' },
+    { name: 'Instagram', icon: 'fab fa-instagram', url: 'https://www.instagram.com/' }
   ];
 
   onSubmit(): void {
