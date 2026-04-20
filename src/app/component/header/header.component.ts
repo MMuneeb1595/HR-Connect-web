@@ -9,7 +9,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
- navLinks = ['Platform','Solutions','Modules','Pricing','Resources','Contact Us'];
+  navLinks = [
+    { label: 'Platform', id: 'platform' },
+    { label: 'Solutions', id: 'solutions' },
+    { label: 'Modules', id: 'modules' },
+    { label: 'Pricing', id: 'pricing' },
+    { label: 'Resources', id: 'resources' },
+    { label: 'Contact Us', id: 'contact-us' }
+  ];
 
   isMenuOpen = signal(false);
   activeSection = signal<string>('Home');
@@ -34,6 +41,7 @@ export class HeaderComponent implements OnInit {
 
   observeSections() {
     const sections = document.querySelectorAll('section[id]');
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,14 +50,20 @@ export class HeaderComponent implements OnInit {
           }
         });
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.6
+      }
     );
+
     sections.forEach((sec) => observer.observe(sec));
   }
 
-  scrollToSection(section: string) {
-    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
-    this.activeSection.set(section);
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.activeSection.set(sectionId);
+    }
     this.isMenuOpen.set(false);
   }
 }

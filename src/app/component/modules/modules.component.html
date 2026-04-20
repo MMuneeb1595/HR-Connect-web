@@ -1,18 +1,14 @@
-<section class="bg-gray-50 py-16 lg:px-6">
+<section class="bg-gray-50 py-16 lg:px-6" id="modules">
   <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
 
     <!-- Heading -->
     <div>
-      <h1
-        data-aos="fade-up" data-aos-duration="1000"
-        class="font-alexandria text-3xl md:text-5xl lg:text-6xl font-bold
+      <h1 data-aos="fade-up" data-aos-duration="1000" class="font-alexandria text-3xl md:text-5xl lg:text-6xl font-bold
                leading-tight mb-4 text-center">
         Everything You Need to
         <span class="text-primary"> Manage Your Workforce</span>
       </h1>
-      <p
-        data-aos="fade-up" data-aos-duration="1000"
-        class="font-alexandria font-normal text-gray-500 text-center
+      <p data-aos="fade-up" data-aos-duration="1000" class="font-alexandria font-normal text-gray-500 text-center
                max-w-[80%] mx-auto">
         20+ Integrated Modules. One Seamless Platform.
       </p>
@@ -23,43 +19,21 @@
       <div class="relative flex items-center justify-center w-[400px] h-[350px]  md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px]">
 
         <!-- Center Card -->
-        <div
-          class="absolute w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72
-                 rounded-full bg-primary text-white shadow-2xl z-10
-                 flex flex-col justify-center items-center text-center p-6
-                 transition-all duration-300 pointer-events-none">
-          <h3 class="text-base md:text-xl font-semibold mb-2">
-            {{ displayItem.title }}
-          </h3>
-          <p class="text-xs md:text-sm leading-relaxed opacity-90
-                    line-clamp-2 sm:line-clamp-3 md:line-clamp-4">
+        <div class="absolute w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full bg-primary text-white shadow-2xl z-10 flex flex-col justify-center items-center text-center p-6 transition-all duration-300 pointer-events-none">
+          <h3 class="text-base md:text-xl font-semibold mb-2">{{ displayItem.title }}</h3>
+          <p class="text-xs md:text-sm leading-relaxed opacity-90 line-clamp-2 sm:line-clamp-3      md:line-clamp-4">
             {{ displayItem.description }}
           </p>
         </div>
 
         <!-- Orbit Icons -->
-        <div
-          *ngFor="let item of modules; let i = index"
-          [ngStyle]="getPosition(i)"
-          (mouseenter)="selectItem(item)"
-          (mouseleave)="clearItem()"
-          [appTooltip]="item.title"
-          class="absolute cursor-pointer">
+        <div *ngFor="let item of modules; let i = index" [ngStyle]="getPosition(i)" (mouseenter)="selectItem(item)" class="absolute cursor-pointer">
 
-          <div
-  class="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center
-         rounded-full shadow-lg transition-all duration-300
-         bg-primary text-white hover:bg-blue-600 hover:scale-110"
-  [appTooltip]="item.title"
-  [class.bg-blue-700]="activeItem === item"
-  [class.scale-125]="activeItem === item"
->
+          <div class="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 bg-primary text-white hover:bg-blue-600 hover:scale-110" [class.bg-blue-700]="activeItem === item" [class.scale-125]="activeItem === item">
             <i [class]="item.icon + ' text-[10px] sm:text-xs md:text-sm lg:text-lg'"></i>
           </div>
 
         </div>
-        <!-- ↑ No tooltip span here — handled by TooltipDirective on body -->
-
       </div>
     </div>
 

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { TooltipDirective } from './tooltip.directive';
+//import { TooltipDirective } from './tooltip.directive';
 import { OnInit } from '@angular/core';
 interface Module {
   title: string;
@@ -10,7 +10,7 @@ interface Module {
 @Component({
   selector: 'app-modules',
   standalone: true,
-  imports: [CommonModule, TooltipDirective],
+  imports: [CommonModule ],
   templateUrl: './modules.component.html',
   styleUrl: './modules.component.scss'
 })
@@ -40,19 +40,13 @@ export class ModulesComponent implements OnInit {
     { title: 'Reports Engine', icon: 'fas fa-file-alt', description: 'Customizable reports: Leave, Loan Ledger, Salary Summary, and more.'}
   ];
 
-
   defaultItem: Module = this.modules[0];
 
   get displayItem(): Module {
     return this.activeItem ?? this.defaultItem;
   }
-
   selectItem(item: Module) {
     this.activeItem = item;
-  }
-
-  clearItem() {
-    this.activeItem = null;
   }
   
   getPosition(index: number): { [key: string]: string } {

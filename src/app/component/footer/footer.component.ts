@@ -1,39 +1,53 @@
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
-import { RouterModule } from '@angular/router';
-import {FormsModule} from '@angular/forms'
+import { Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule,RouterModule,FormsModule,],
+  imports: [CommonModule, FormsModule, RouterModule], // ✅ FIXED
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  quickLinks = [
-    { label: 'Platform', path: '/platform' },
-    { label: 'Modules', path: '/modules' },
-    { label: 'Solutions', path: '/solutions' },
-    { label: 'Pricing', path: '/pricing' },
-    { label: 'Resources', path: '/resources' },
-    { label: 'Contact', path: '/contact' }
+
+  email: string = '';
+
+  // ✅ FIX 1: add missing legalLinks
+ legalLinks = [
+    { label: 'Privacy Policy', id: 'privacy-policy' },
+    { label: 'Terms of Services', id: 'terms-of-services' },
+    { label: 'GDPR Compliance', id: 'gdpr-compliance' }
   ];
 
-  legalLinks = [
-    { label: 'Privacy Policy', path: '/privacy' },
-    { label: 'Terms of Service', path: '/terms' },
-    { label: 'GDPR Compliance', path: '/gdpr' }
-  ];
- email: string = '';
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  constructor(private router: Router) {}
 
+  // ✅ navigation with fragment
+  navigateToSection(sectionId: string) {
+    this.router.navigate([], {
+      fragment: sectionId
+    });
+
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  }
+
+  // ✅ FIX 2: add missing method
   subscribe() {
+    if (!this.email) return;
+
     console.log('Subscribed:', this.email);
+    alert('Subscribed successfully!');
     this.email = '';
   }
-  // socialIcons = [
-  //   { icon: 'fa-brands fa-facebook-f', link: 'https://www.facebook.com' },
-  //   { icon: 'fa-brands fa-linkedin-in', link: 'https://www.linkedin.com' },
-  //   { icon: 'fa-solid fa-envelope', link: 'https://www.gmail.com' },
-  // ];
 }

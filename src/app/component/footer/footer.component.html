@@ -42,23 +42,28 @@
 
     <!-- Quick Links -->
     <div data-aos="fade-up" data-aos-duration="1000" class="mt-2">
-      <h3 class="text-white font-extrabold mb-4">Quick Links</h3>
+      <h2 class="text-xl font-semibold mb-4">Quick Links</h2>
       <ul class="space-y-2">
-        @for (link of quickLinks; track $index) {
-        <li>
-          <a [routerLink]="link.path" class="text-gray-300 hover:text-white transition">{{ link.label }}</a>
-        </li>
-        }
+        <li><a (click)="navigateToSection('platform')" class="cursor-pointer hover:text-blue-600">Platform</a></li>
+        <li><a (click)="navigateToSection('solutions')" class="cursor-pointer hover:text-blue-600">Solutions</a></li>
+        <li><a (click)="navigateToSection('modules')" class="cursor-pointer
+        hover:text-blue-600">Modules</a></li>
+        <li><a (click)="navigateToSection('pricing')" class="cursor-pointer
+        hover:text-blue-600">Pricing</a></li>
+        <li><a (click)="navigateToSection('resources')" class="cursor-pointer hover:text-blue-600">Resources</a></li>
+        <li><a (click)="navigateToSection('contact-us')" class="cursor-pointer hover:text-blue-600">Contact Us</a></li>
       </ul>
     </div>
 
     <!-- Legal -->
     <div data-aos="fade-up" data-aos-duration="1000" class="mt-2">
-      <h3 class="text-white font-extrabold mb-4">Legal</h3>
+      <h2 class="text-xl font-semibold mb-4">Legal</h2>
       <ul class="space-y-2">
-        @for (link of legalLinks; track $index) {
+        @for (item of legalLinks; track $index) {
         <li>
-          <a [routerLink]="link.path" class="text-gray-300 hover:text-white transition">{{ link.label }}</a>
+          <a class="cursor-pointer hover:text-blue-600" (click)="scrollToSection(item.id)">
+            {{ item.label }}
+          </a>
         </li>
         }
       </ul>
@@ -66,7 +71,7 @@
 
     <!-- Newsletter -->
     <div data-aos="fade-up" data-aos-duration="1000" class="mt-2">
-      <h3 class="text-white font-extrabold mb-4" >Newsletter</h3>
+      <h2 class="text-white text-xl font-semibold mb-4">Newsletter</h2>
       <p class="text-sm mb-4 text-gray-300">Get HR tips and product updates.</p>
 
       <div class="flex flex-col gap-3">
@@ -82,7 +87,7 @@
   </div>
 
   <!-- Bottom -->
-  <div class="mt-10 border-t border-white/30 pt-4 text-center text-sm text-gray-300 font-semibold" >
+  <div class="mt-10 border-t border-white/30 pt-4 text-center text-sm text-gray-300 font-semibold">
     © 2024 HR Connect. All rights reserved
   </div>
 
