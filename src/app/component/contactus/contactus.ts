@@ -62,18 +62,18 @@ export class Contactus {
       this.formData.fullName === '' &&
       this.formData.companyName === '' &&
       this.formData.phoneNumber === '' &&
-      this.formData.workEmail === '' 
+      this.formData.workEmail === ''
     ) {
       alert('All fields are empty');
+    }else{
+
+      console.log('Form submitted:', this.formData);
+      this.formData.fullName = '';
+      this.formData.companyName = '';
+      this.formData.workEmail = '';
+      this.formData.phoneNumber = '';
+      alert('Demo request submitted successfully!');
     }
-
-    console.log('Form submitted:', this.formData);
-    this.formData.fullName = '';
-    this.formData.companyName = '';
-    this.formData.workEmail = '';
-    this.formData.phoneNumber = '';
-    alert('Demo request submitted successfully!');
-
   }
 
   toggleInterest(interest: keyof DemoForm['interests']): void {
